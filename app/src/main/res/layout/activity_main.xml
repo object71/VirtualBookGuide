@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="hstamenov.net.virtualbookguide.MainActivity">
+
+    <ImageView
+        android:id="@+id/mapBtn"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="32dp"
+        android:onClick="onNavigateToMap"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/ic_launcher" />
+
+    <ImageView
+        android:id="@+id/listBtn"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="32dp"
+        android:onClick="onNavigateToList"
+        app:layout_constraintHorizontal_bias="0.551"
+        app:layout_constraintLeft_toRightOf="@+id/mapBtn"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/list"
+        tools:layout_editor_absoluteX="202dp" />
+</android.support.constraint.ConstraintLayout>
