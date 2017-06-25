@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<places>
+    <place>
+        <name>Sofia Center</name>
+        <information>The center of Sofia. Truly a great place</information>
+        <address>Metrostation Serdika</address>
+        <openHours>Always available</openHours>
+        <position>42.6976236,23.3215469</position>
+    </place>
+    <place>
+        <name>Sofia Center</name>
+        <information>The center of Sofia. Truly a great place</information>
+        <address>Metrostation Serdika</address>
+        <openHours>Always available</openHours>
+        <position>41.6976236,22.3215469</position>
+    </place>
+    <place>
+        <name>Sofia Center</name>
+        <information>The center of Sofia. Truly a great place</information>
+        <address>Metrostation Serdika</address>
+        <openHours>Always available</openHours>
+        <position>43.6976236,24.3215469</position>
+    </place>
+    <place>
+        <name>Sofia Center</name>
+        <information>The center of Sofia. Truly a great place</information>
+        <address>Metrostation Serdika</address>
+        <openHours>Always available</openHours>
+        <position>42.6976236,25.3215469</position>
+    </place>
+    <place>
+        <name>Sofia Center</name>
+        <information>The center of Sofia. Truly a great place</information>
+        <address>Metrostation Serdika</address>
+        <openHours>Always available</openHours>
+        <position>43.6976236,24.3215469</position>
+    </place>
+</places>

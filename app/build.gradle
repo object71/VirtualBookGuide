@@ -4,8 +4,8 @@ android {
     compileSdkVersion 26
     buildToolsVersion "26.0.0"
     defaultConfig {
-        applicationId "hstamenov.net.virtualbookguide"
-        minSdkVersion 14
+        applicationId "net.hstamenov.virtualbookguide"
+        minSdkVersion 16
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
