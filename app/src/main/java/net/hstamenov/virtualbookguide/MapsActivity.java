@@ -30,6 +30,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
 
+
     /**
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
@@ -47,9 +48,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         for(Place place: Handler.database.getAllPlaces()) {
             if(place.visited) {
-                mMap.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_bulgaria_marked)).draggable(false).position(place.position).title(place.name).anchor(0.5f, 1f));
+                mMap.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_bulgaria_marked)).draggable(false).position(place.position).title("" + place.id).anchor(0.5f, 1f));
             } else {
-                mMap.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_bulgaria)).draggable(false).position(place.position).title(place.name).anchor(0.5f, 1f));
+                mMap.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_bulgaria)).draggable(false).position(place.position).title("" + place.id).anchor(0.5f, 1f)).setTag(place);
             }
         }
 
@@ -67,10 +68,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public boolean onMarkerClick(final Marker marker) {
 
-        Place place = Handler.getPlaceByName(marker.getTitle());
-
         Intent intent = new Intent(this, InfoActivity.class);
-        intent.putExtra("Place", place.id);
+        intent.putExtra("Place", Integer.parseInt(marker.getTitle()));
         startActivity(intent);
 
         return true;
