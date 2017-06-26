@@ -9,6 +9,7 @@ import com.google.android.gms.maps.model.LatLng;
 public class Place {
     public int id;
     public String name;
+    public String number;
     public String address;
     public String openHours;
     public String information;

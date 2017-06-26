@@ -16,7 +16,7 @@ import net.hstamenov.virtualbookguide.models.Place;
 public class PlacesDatabase extends SQLiteOpenHelper {
 
     // All Static variables
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     private static final String DATABASE_NAME = "virtualbookguide";
 
@@ -24,6 +24,7 @@ public class PlacesDatabase extends SQLiteOpenHelper {
 
     private static final String KEY_ID = "id";
     private static final String KEY_NAME = "name";
+    private static final String KEY_NUMBER = "number";
     private static final String KEY_ADDRESS = "address";
     private static final String KEY_OPEN_HOURS = "openHours";
     private static final String KEY_INFORMATION = "information";
@@ -41,6 +42,7 @@ public class PlacesDatabase extends SQLiteOpenHelper {
         String CREATE_PLACES_TABLE = "CREATE TABLE " + TABLE_PLACES + "("
                 + KEY_ID + " INTEGER PRIMARY KEY,"
                 + KEY_NAME + " TEXT,"
+                + KEY_NUMBER + " TEXT,"
                 + KEY_OPEN_HOURS + " TEXT,"
                 + KEY_INFORMATION + " TEXT,"
                 + KEY_POSITION + " TEXT,"
@@ -67,6 +69,7 @@ public class PlacesDatabase extends SQLiteOpenHelper {
 
         ContentValues values = new ContentValues();
         values.put(KEY_NAME, place.name);
+        values.put(KEY_NUMBER, place.number);
         values.put(KEY_OPEN_HOURS, place.openHours);
         values.put(KEY_INFORMATION, place.information);
         values.put(KEY_POSITION, place.position.latitude + "," + place.position.longitude);
@@ -81,7 +84,7 @@ public class PlacesDatabase extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = db.query(TABLE_PLACES, new String[] { KEY_ID,
-                        KEY_NAME, KEY_OPEN_HOURS, KEY_INFORMATION, KEY_POSITION, KEY_VISITED, KEY_ADDRESS }, KEY_ID + "=?",
+                        KEY_NAME, KEY_OPEN_HOURS, KEY_INFORMATION, KEY_POSITION, KEY_VISITED, KEY_ADDRESS, KEY_NUMBER }, KEY_ID + "=?",
                 new String[] { String.valueOf(id) }, null, null, null, null);
         if (cursor != null) {
             cursor.moveToFirst();
@@ -97,6 +100,7 @@ public class PlacesDatabase extends SQLiteOpenHelper {
         place.position = new LatLng(Float.parseFloat(position.split(",")[0]), Float.parseFloat(position.split(",")[1]));
         place.visited = Integer.parseInt(cursor.getString(5)) == 0 ? false : true;
         place.address = cursor.getString(6);
+        place.number = cursor.getString(7);
 
         cursor.close();
 
@@ -115,11 +119,13 @@ public class PlacesDatabase extends SQLiteOpenHelper {
                 Place place = new Place();
                 place.id = cursor.getInt(0);
                 place.name = cursor.getString(1);
-                place.openHours = cursor.getString(2);
-                place.information = cursor.getString(3);
-                place.position = new LatLng(Float.parseFloat(cursor.getString(4).split(",")[0]), Float.parseFloat(cursor.getString(4).split(",")[1]));
-                place.visited = cursor.getInt(5) == 0 ? false : true;
-                place.address = cursor.getString(6);
+                place.number = cursor.getString(2);
+                place.openHours = cursor.getString(3);
+                place.information = cursor.getString(4);
+                place.position = new LatLng(Float.parseFloat(cursor.getString(5).split(",")[0]), Float.parseFloat(cursor.getString(5).split(",")[1]));
+                place.visited = cursor.getInt(6) == 0 ? false : true;
+                place.address = cursor.getString(7);
+
 
                 placesList.add(place);
             } while (cursor.moveToNext());
@@ -138,6 +144,7 @@ public class PlacesDatabase extends SQLiteOpenHelper {
         values.put(KEY_POSITION, place.position.latitude + "," + place.position.longitude);
         values.put(KEY_VISITED, place.visited ? 1 : 0);
         values.put(KEY_ADDRESS, place.address);
+        values.put(KEY_NUMBER, place.number);
 
         return db.update(TABLE_PLACES, values, KEY_ID + " = ?",
                 new String[] { String.valueOf(place.id) });

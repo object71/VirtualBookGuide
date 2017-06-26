@@ -75,6 +75,8 @@ public class Handler {
                             place.information = text;
                         } else if (tagname.equalsIgnoreCase("position")) {
                             place.position = new LatLng(Float.parseFloat(text.split(",")[0]), Float.parseFloat(text.split(",")[1]));
+                        } else if (tagname.equalsIgnoreCase("number")) {
+                            place.number = text;
                         }
 
 

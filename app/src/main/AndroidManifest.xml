@@ -12,7 +12,7 @@
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_national_park_museum_shipka"
-        android:label="Stamp Book Guide"
+        android:label="Виртуална Книжка 100 НТО"
         android:roundIcon="@drawable/ic_national_park_museum_shipka"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"

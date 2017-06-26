@@ -79,7 +79,7 @@ public class PlaceAdapter extends ArrayAdapter<Place> implements View.OnClickLis
 
         lastPosition = position;
 
-        viewHolder.name.setText(dataModel.name);
+        viewHolder.name.setText(dataModel.number + " : " + dataModel.name);
         viewHolder.address.setText(dataModel.address);
 
         if(dataModel.visited) {
